@@ -1,5 +1,6 @@
 package com.devsuperior.dsevento.entities;
 
+import java.time.Instant;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -18,18 +19,10 @@ public class Bloco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String nome;
-    @Column(unique = true)
-    private String email;
-
-    public Bloco() {
-    }
-
-    public Bloco(Integer id, String nome, String email) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-    }
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    private Instant inicio;
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    private Instant fim;
 
     @ManyToOne
     @JoinColumn(name = "atividade_id")
@@ -43,20 +36,20 @@ public class Bloco {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public Instant getInicio() {
+        return inicio;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setInicio(Instant inicio) {
+        this.inicio = inicio;
     }
 
-    public String getEmail() {
-        return email;
+    public Instant getFim() {
+        return fim;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setFim(Instant fim) {
+        this.fim = fim;
     }
 
     public Atividade getAtividade() {
@@ -67,7 +60,7 @@ public class Bloco {
         this.atividade = atividade;
     }
 
-    @Override
+     @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
