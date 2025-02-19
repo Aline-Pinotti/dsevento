@@ -19,26 +19,26 @@ Deseja-se construir um sistema para gerenciar as informações dos participantes
 classDiagram
 direction TB
     class Atividade {
-	    -~~ oid ~~Integer id
+	    -~~oid~~Integer id
 	    -String nome
 	    -String descricao
 	    -Double preco
     }
 
     class Participante {
-	    -~~ oid ~~Integer id
+	    -~~oid~~Integer id
 	    -String nome
 	    -String email
     }
 
     class Bloco {
-	    -~~ oid ~~Integer id
+	    -~~oid~~Integer id
 	    -Instant inicio
 	    -Instant fim
     }
 
     class Categoria {
-	    -~~ oid ~~Integer id
+	    -~~oid~~Integer id
 	    -String descricao
     }
 
